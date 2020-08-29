@@ -4,17 +4,17 @@ import Square from './Square';
 function Row(props) {
     const name = props.name || '?';
 
+    const chess = props.chess;
+
     const styles = {
         display: 'grid',
         gridTemplateColumns: 'auto auto auto auto auto auto auto auto',
         width: props.size
     };
 
-    const getColorOfSquare = (file, row) => ((file.charCodeAt(0) - 'a'.charCodeAt(0) + row) % 2 === 0) ? 'light' : 'dark';
-
     const squares = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].map(
         (file) => (
-            <Square size={styles.width} name={file + name} color={getColorOfSquare(file, name)} />
+            <Square piece={chess.get(file + name)} size={styles.width} name={file + name} color={chess.square_color(file + name)} chess={chess} />
         )
     );
 

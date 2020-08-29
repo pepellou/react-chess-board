@@ -2,6 +2,7 @@ import React from 'react';
 
 function Square(props) {
     const name = props.name || '?';
+    const piece = props.piece || null;
 
     const color = props.color || 'light';
 
@@ -15,6 +16,10 @@ function Square(props) {
         lineHeight: props.size / 8 - 2,
         backgroundColor: ( color === 'light' ? '#c0c080' : '#808040' )
     };
+
+    if (piece != null) {
+        styles.backgroundColor = ( color === 'light' ? '#c0c0c0' : '#808080' )
+    }
 
     return (
         <div className="ChessBoardSquare" style={styles}>
