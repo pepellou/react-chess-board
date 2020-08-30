@@ -9,13 +9,23 @@
     "chess.js": "^0.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-syntax-highlighter": "^13.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pepellou/react-chess-board.git"
+  },
+  "author": "Pepe Doval",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pepellou/react-chess-board/issues"
   },
   "eslintConfig": {
     "extends": "react-app"

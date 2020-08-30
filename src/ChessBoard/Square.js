@@ -57,18 +57,34 @@ function Square(props) {
         height: props.size / 8 - 2
     };
 
-    let image = null;
-
     const piece = chess.get(name)
+
+    const colors = {
+        w: 'white',
+        b: 'black'
+    }
+
+    const pieces = {
+        k: 'king',
+        q: 'queen',
+        r: 'rook',
+        b: 'bishop',
+        n: 'knight',
+        p: 'pawn'
+    }
+
+    let image = null;
+    let image_alt = '';
 
     if (piece != null) {
         image = piecesImages[piece.color][piece.type];
+        image_alt = colors[piece.color] + ' ' + pieces[piece.type];
     }
 
     return (
         <div className="ChessBoardSquare" style={styles}>
             <div style={pieceStyles}>
-                <img src={image} style={{float: "left"}} />
+                <img src={image} alt={image_alt} style={{float: "left"}} />
             </div>
         </div>
     );
