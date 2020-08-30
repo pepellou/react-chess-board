@@ -8,16 +8,16 @@ function ChessBoard(props) {
 
     const [ chess, setChess ] = useState(new Chess(props.fen || startingPositionFEN));
 
-    const boardSize = props.size || "300px";
+    const boardSize = props.size || 360;
 
     const styles = {
-        display: 'grid',
-        gridTemplateRows: 'auto auto auto auto auto auto auto auto',
+        display: 'block',
         borderWidth: '5px',
         borderStyle: 'solid',
         borderColor: '#404020',
         width: boardSize,
-        height: boardSize
+        height: boardSize,
+        float: 'left'
     };
 
     const rows = [8, 7, 6, 5, 4, 3, 2, 1].map(
@@ -31,7 +31,7 @@ function ChessBoard(props) {
             <div className="ChessBoard" style={styles}>
                 { rows }
             </div>
-            <footer> { chess.turn() == 'w' ? 'White' : 'Black' } to move </footer>
+            <footer style={{width: "100%", float: "left"}}> { chess.turn() == 'w' ? 'White' : 'Black' } to move </footer>
         </div>
     );
 }

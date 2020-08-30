@@ -7,14 +7,15 @@ function Row(props) {
     const chess = props.chess;
 
     const styles = {
-        display: 'grid',
-        gridTemplateColumns: 'auto auto auto auto auto auto auto auto',
-        width: props.size
+        display: 'block',
+        width: props.size,
+        height: props.size / 8,
+        float: 'left'
     };
 
     const squares = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].map(
         (file) => (
-            <Square piece={chess.get(file + name)} size={styles.width} name={file + name} color={chess.square_color(file + name)} chess={chess} />
+            <Square size={styles.width} name={file + name} chess={chess} />
         )
     );
 
