@@ -2,18 +2,26 @@ import React from 'react';
 import Square from './Square';
 
 function Row(props) {
-    const fen = props.fen;
+    const name = props.name || '?';
+
+    const chess = props.chess;
+
+    const styles = {
+        display: 'block',
+        width: props.size,
+        height: props.size / 8,
+        float: 'left'
+    };
+
+    const squares = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].map(
+        (file) => (
+            <Square size={styles.width} name={file + name} chess={chess} />
+        )
+    );
 
     return (
-        <div className="ChessBoardRow">
-            <Square />
-            <Square />
-            <Square />
-            <Square />
-            <Square />
-            <Square />
-            <Square />
-            <Square />
+        <div className="ChessBoardRow" style={styles}>
+            { squares }
         </div>
     );
 }
