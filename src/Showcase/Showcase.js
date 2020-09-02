@@ -11,8 +11,13 @@ const JsxString = (component, counter = 0) => {
         if (key !== "children") {
             let propValue = props[key];
             let value = "";
-            if (propValue instanceof Object) {
-                value = `{${JSON.stringify(propValue).replace(/['"]+/g, '')}}`;
+            if (propValue instanceof Function) {
+                value = '{' + propValue.toString().split(' ')[1].split('(')[0] + '}';
+            } else if (propValue instanceof Object) {
+                const propValueAsString = JSON.stringify(propValue);
+                if (propValueAsString !== undefined) {
+                    value = `{${propValueAsString.replace(/['"]+/g, '')}}`;
+                }
             } else {
                 value = `"${propValue}"`;
             }

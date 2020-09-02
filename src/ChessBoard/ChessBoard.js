@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Chess from 'chess.js';
 
 import Row from './Row';
@@ -7,8 +7,15 @@ function ChessBoard(props) {
     const startingPositionFEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
     const [ chess, setChess ] = useState(new Chess(props.fen || startingPositionFEN));
+    const [ fen, setFen ] = useState(startingPositionFEN);
 
     const boardSize = props.size || 360;
+
+    const doNothing = () => {};
+
+    const callbacks = {
+        onPositionChange: props.onPositionChange || doNothing
+    };
 
     const styles = {
         display: 'block',
@@ -22,9 +29,11 @@ function ChessBoard(props) {
 
     const rows = [8, 7, 6, 5, 4, 3, 2, 1].map(
         (row) => (
-            <Row name={row} size={styles.width} chess={chess} />
+            <Row key={'row_' + row} name={row} size={styles.width} chess={chess} />
         )
     );
+
+    useEffect(() => callbacks.onPositionChange(fen), [fen]);
 
     return (
         <div>
