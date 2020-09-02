@@ -15,7 +15,7 @@ function Row(props) {
 
     const squares = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].map(
         (file) => (
-            <Square size={styles.width} name={file + name} chess={chess} />
+            <Square key={'square_' + file + name} size={styles.width} name={file + name} chess={chess} />
         )
     );
 

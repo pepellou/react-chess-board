@@ -29,7 +29,7 @@ function ChessBoard(props) {
 
     const rows = [8, 7, 6, 5, 4, 3, 2, 1].map(
         (row) => (
-            <Row name={row} size={styles.width} chess={chess} />
+            <Row key={'row_' + row} name={row} size={styles.width} chess={chess} />
         )
     );
 

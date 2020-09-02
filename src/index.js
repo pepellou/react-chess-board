@@ -10,7 +10,7 @@ const articleStyles = {
 };
 
 function handlePositionChange(fen) {
-    if (fen == undefined) {
+    if (fen === undefined) {
         console.log('No FEN :(');
     } else {
         console.log(fen);

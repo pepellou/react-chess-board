@@ -15,7 +15,7 @@ const JsxString = (component, counter = 0) => {
                 value = '{' + propValue.toString().split(' ')[1].split('(')[0] + '}';
             } else if (propValue instanceof Object) {
                 const propValueAsString = JSON.stringify(propValue);
-                if (propValueAsString != undefined) {
+                if (propValueAsString !== undefined) {
                     value = `{${propValueAsString.replace(/['"]+/g, '')}}`;
                 }
             } else {
