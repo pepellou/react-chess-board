@@ -31,7 +31,7 @@ function ChessBoard(props) {
             <div className="ChessBoard" style={styles}>
                 { rows }
             </div>
-            <footer style={{width: "100%", float: "left"}}> { chess.turn() == 'w' ? 'White' : 'Black' } to move </footer>
+            <footer style={{width: "100%", float: "left"}}> { chess.turn() === 'w' ? 'White' : 'Black' } to move </footer>
         </div>
     );
 }
